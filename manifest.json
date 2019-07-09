@@ -1,0 +1,18 @@
+{
+    "manifest_version": 2,
+    "name":"Icollet",
+    "version":"0.0.1",
+    "description":"ICO Wallet & BLock Chain investigation tool.",
+    "icons":{ 
+        "128":"icon/icon.png"
+    },
+
+    "permissions":[
+        "clipboardWrite",
+        "contextMenus",
+        "menus"
+    ],
+    "background":{
+        "scripts":["background.js"]
+    }
+}
