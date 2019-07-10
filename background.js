@@ -33,6 +33,20 @@ browser.contextMenus.create({
     parentId:"BTC-wallet"
 });
 
+browser.contextMenus.create({
+    id:"bitcoinabuse",
+    title:"BitcoinAbuse",
+    contexts:["selection","link"],
+    parentId:"BTC-wallet"
+});
+
+browser.contextMenus.create({
+    id:"blockcypher",
+    title:"BlockCypher",
+    contexts:["selection","link"],
+    parentId:"BTC-wallet"
+});
+
 
 //transaction
 browser.contextMenus.create({
@@ -47,7 +61,14 @@ browser.contextMenus.create({
     title:"MinerGate-BTC",
     contexts:["selection","link"],
     parentId:"BTC-transaction"
-})
+});
+
+browser.contextMenus.create({
+    id:"chainflyer-tr",
+    title:"Chainflyer-Tr",
+    contexts:["selection","link"],
+    parentId:"BTC-transaction"
+});
 
 
 //create BCH contextmenus
@@ -57,12 +78,95 @@ browser.contextMenus.create({
     contexts:["selection","link"]
 });
 
+//BCH-wallet
+browser.contextMenus.create({
+    id:"BCH-wallet",
+    title:"BCH-wallet",
+    contexts:["selection","link"],
+    parentId:"BCH"
+});
+
+//BCH-transaction
+browser.contextMenus.create({
+    id:"BCH-transaction",
+    title:"BCH-Transaction",
+    contexts:["selection","link"],
+    parentId:"BCH"
+});
+
 //create ETH contextmenus
 browser.contextMenus.create({
     id:"ETH",
     title:"ETH",
     contexts:["selection", "link"]
 });
+
+//ETH-wallet
+browser.contextMenus.create({
+    id:"ETH-wallet",
+    title:"ETH-wallet",
+    contexts:["selection","link"],
+    parentId:"ETH"
+});
+
+browser.contextMenus.create({
+    id:"etherscan-addr",
+    title:"Etherscan",
+    contexts:["selection","link"],
+    parentId:"ETH-wallet"
+});
+
+browser.contextMenus.create({
+    id:"ethplorer-addr",
+    title:"Ethplorer",
+    contexts:["selection","link"],
+    parentId:"ETH-wallet"
+});
+
+browser.contextMenus.create({
+    id:"etherscamdb",
+    title:"EtherScamdb",
+    contexts:["selection","link"],
+    parentId:"ETH-wallet"
+});
+
+//ETH-transaction
+browser.contextMenus.create({
+    id:"ETH-transaction",
+    title:"ETH-Transaction",
+    contexts:["selection","link"],
+    parentId:"ETH"
+});
+
+browser.contextMenus.create({
+    id:"etherscan-tx",
+    title:"Etherscan-TX",
+    contexts:["selection","link"],
+    parentId:"ETH-transaction"
+});
+
+browser.contextMenus.create({
+    id:"ethplorer-tx",
+    title:"Ethplorer-TX",
+    contexts:["selection","link"],
+    parentId:"ETH-transaction"
+});
+
+//domain abuse check
+//browser.contextMenus.create({
+//    id:"ETH-domain",
+//    title:"ETH-Domain Abuse",
+//    contexts:["selection","link"],
+//    parentId:"ETH"
+//});
+
+
+//browser.contextMenus.create({
+//    id:"etherscam-domain",
+//    title:"EtherScamdb-Domain",
+//    contexts:["selection","link"],
+//    parentId:"ETH-domain"
+//});
 
 //create XRP contextmenus
 browser.contextMenus.create({
@@ -103,7 +207,11 @@ browser.contextMenus.onClicked.addListener((info, tab) =>{
     }else if(info.linkText){
         var link = String(info.linkText).trim();
         addr = link;
+    }else if(info.linkUrl){
+        var src = new URL(info.linkUrl);
+        addr = src.host;
     }
+
     switch(info.menuItemId){
         //BTC-wallet
         case "BTC.com":
@@ -114,14 +222,54 @@ browser.contextMenus.onClicked.addListener((info, tab) =>{
             url="https://www.blockchain.com/ja/btc/address/"+addr;
             break;
 
+        case "chainflyer":
+            url="https://chainflyer.bitflyer.jp/Address/"+addr;
+            break;
+
+        case "bitcoinabuse":
+            url="https://www.bitcoinabuse.com/reports/"+addr;
+            break;
+
+        case "blockcypher":
+            url="https://live.blockcypher.com/btc/address/"+addr;
+            break;
+
         //BTC-transaction
         case "minergate-btc":
             url="https://minergate.com/blockchain/btc/transaction/"+addr;
             break;
         
         case "chainflyer":
-            url="https://chainflyer.bitflyer.jp/Address/"+addr;
+            url="https://chainflyer.bitflyer.jp/Transaction/"+addr;
             break;
+
+        //BCH-wallet
+        //ETH-wallet
+        case "etherscan-addr":
+            url="https://etherscan.io/address/"+addr;
+            break;
+        
+        case "ethplorer-addr":
+            url="https://ethplorer.io/address/"+addr+"?from=search";
+            break;
+
+        case "etherscamdb":
+            url="https://etherscamdb.info/address/"+addr;
+            break;
+
+        //ETH-transaction
+        case "etherscan-tx":
+            url="https://etherscan.io/tx/"+addr;
+            break;
+
+        case "ethplorer-tx":
+            url="https://ethplorer.io/tx/"+addr;
+            break;
+        //ETH domain abuse
+        //case "etherscam-domain":
+            //url="https://etherscamdb.info/domain/"+addr;
+            //break;
+
     }
 
 browser.tabs.create({url: url});
