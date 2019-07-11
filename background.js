@@ -2,7 +2,10 @@
 browser.contextMenus.create({
     id: "BTC",
     title: "BTC",
-    contexts: ["selection", "link"]
+    contexts: ["selection", "link"],
+    icons:{
+    "16":"icon/btc.png"
+    }
 });
 //wallet
 browser.contextMenus.create({
@@ -13,38 +16,53 @@ browser.contextMenus.create({
 })
 
 browser.contextMenus.create({
-    id:"BTC.com",
-    title:"BTC.com",
+    id:"blockchair-BTC",
+    title:"BlockChair-BTC",
     contexts:["selection", "link"],
-    parentId:"BTC-wallet"
+    parentId:"BTC-wallet",
+    icons:{
+        "16":"icon/blockchair.png"
+    }
 });
 
 browser.contextMenus.create({
     id:"blockchain.com",
     title:"BlockChain.com-BTC",
     contexts:["selection","link"],
-    parentId:"BTC-wallet"
+    parentId:"BTC-wallet",
+    icons:{
+        "16":"icon/blockchain.png"
+    }
 })
 
 browser.contextMenus.create({
     id:"chainflyer",
     title:"Chainflyer",
     contexts:["selection","link"],
-    parentId:"BTC-wallet"
+    parentId:"BTC-wallet",
+    icons:{
+        "16":"icon/chainflyer.png"
+    }
 });
 
 browser.contextMenus.create({
     id:"bitcoinabuse",
     title:"BitcoinAbuse",
     contexts:["selection","link"],
-    parentId:"BTC-wallet"
+    parentId:"BTC-wallet",
+    icons:{
+        "16":"icon/bitcoinabuse.png"
+    }
 });
 
 browser.contextMenus.create({
     id:"blockcypher",
     title:"BlockCypher",
     contexts:["selection","link"],
-    parentId:"BTC-wallet"
+    parentId:"BTC-wallet",
+    icons:{
+        "16":"icon/blockcypher.png"
+    }
 });
 
 
@@ -60,14 +78,30 @@ browser.contextMenus.create({
     id:"minergate-btc",
     title:"MinerGate-BTC",
     contexts:["selection","link"],
-    parentId:"BTC-transaction"
+    parentId:"BTC-transaction",
+    icons:{
+        "16":"icon/minergate.png"
+    }
 });
 
 browser.contextMenus.create({
     id:"chainflyer-tr",
     title:"Chainflyer-Tr",
     contexts:["selection","link"],
-    parentId:"BTC-transaction"
+    parentId:"BTC-transaction",
+    icons:{
+        "16":"icon/chainflyer.png"
+    }
+});
+
+browser.contextMenus.create({
+    id:"blockchair-tx",
+    title:"BlockChair-TX",
+    contexts:["selection","link"],
+    parentId:"BTC-transaction",
+    icons:{
+        "16":"icon/blockchair.png"
+    }
 });
 
 
@@ -75,7 +109,10 @@ browser.contextMenus.create({
 browser.contextMenus.create({
     id:"BCH",
     title:"BCH",
-    contexts:["selection","link"]
+    contexts:["selection","link"],
+    icons:{
+        "16":"icon/bch.png"
+    }
 });
 
 //BCH-wallet
@@ -86,19 +123,62 @@ browser.contextMenus.create({
     parentId:"BCH"
 });
 
+browser.contextMenus.create({
+    id:"blockchain-bch",
+    title:"BlockChain Explorer",
+    contexts:["selection","link"],
+    parentId:"BCH-wallet",
+    icons:{
+        "16":"icon/blockchain.png"
+    }
+});
+
+browser.contextMenus.create({
+    id:"blockchair-bch",
+    title:"BlockChair-BCH",
+    contexts:["selection","link"],
+    parentId:"BCH-wallet",
+    icons:{
+        "16":"icon/blockchair.png"
+    }
+});
+
 //BCH-transaction
 browser.contextMenus.create({
     id:"BCH-transaction",
-    title:"BCH-Transaction",
+    title:"BCH-transaction",
     contexts:["selection","link"],
     parentId:"BCH"
+});
+
+browser.contextMenus.create({
+    id:"blockchain-bch-tx",
+    title:"BlockChain-BCH-TX",
+    contexts:["selection","link"],
+    parentId:"BCH-transaction",
+    icons:{
+        "16":"/icon/blockchain.png"
+    }
+});
+
+browser.contextMenus.create({
+    id:"blockchair-bch-tx",
+    title:"BlockChair-BCH-TX",
+    contexts:["selection","link"],
+    parentId:"BCH-transaction",
+    icons:{
+        "16":"icon/blockchair.png"
+    }
 });
 
 //create ETH contextmenus
 browser.contextMenus.create({
     id:"ETH",
     title:"ETH",
-    contexts:["selection", "link"]
+    contexts:["selection", "link"],
+    icons:{
+        "16":"icon/eth.png"
+    }
 });
 
 //ETH-wallet
@@ -113,27 +193,36 @@ browser.contextMenus.create({
     id:"etherscan-addr",
     title:"Etherscan",
     contexts:["selection","link"],
-    parentId:"ETH-wallet"
+    parentId:"ETH-wallet",
+    icons:{
+        "16":"icon/etherscan.png"
+    }
 });
 
 browser.contextMenus.create({
     id:"ethplorer-addr",
     title:"Ethplorer",
     contexts:["selection","link"],
-    parentId:"ETH-wallet"
+    parentId:"ETH-wallet",
+    icons:{
+        "16":"icon/ethplorer.png"
+    }
 });
 
 browser.contextMenus.create({
     id:"etherscamdb",
     title:"EtherScamdb",
     contexts:["selection","link"],
-    parentId:"ETH-wallet"
+    parentId:"ETH-wallet",
+    icons:{
+        "16":"icon/etherscamdb.png"
+    }
 });
 
 //ETH-transaction
 browser.contextMenus.create({
     id:"ETH-transaction",
-    title:"ETH-Transaction",
+    title:"ETH-transaction",
     contexts:["selection","link"],
     parentId:"ETH"
 });
@@ -142,14 +231,20 @@ browser.contextMenus.create({
     id:"etherscan-tx",
     title:"Etherscan-TX",
     contexts:["selection","link"],
-    parentId:"ETH-transaction"
+    parentId:"ETH-transaction",
+    icons:{
+        "16":"icon/etherscan.png"
+    }
 });
 
 browser.contextMenus.create({
     id:"ethplorer-tx",
     title:"Ethplorer-TX",
     contexts:["selection","link"],
-    parentId:"ETH-transaction"
+    parentId:"ETH-transaction",
+    icons:{
+        "16":"icon/ethplorer.png"
+    }
 });
 
 //domain abuse check
@@ -168,33 +263,60 @@ browser.contextMenus.create({
 //    parentId:"ETH-domain"
 //});
 
-//create XRP contextmenus
-browser.contextMenus.create({
-    id:"XRP",
-    title:"XRP",
-    contexts:["selection","link"]
-});
 
 //create XMR contextmenus
-browser.contextMenus.create({
-    id:"XMR",
-    title:"XMR",
-    contexts:["selection","link"]
-});
+//browser.contextMenus.create({
+//  id:"XMR",
+//    title:"XMR",
+//    contexts:["selection","link"]
+//});
 
 //create MONA contextmenus
 browser.contextMenus.create({
     id:"MONA",
     title:"MONA",
-    contexts:["selection","link"]
+    contexts:["selection","link"],
+    icons:{
+        "16":"icon/mona.png"
+    }
 });
 
-//create LTC contextmenus
+//MONA-wallet
 browser.contextMenus.create({
-    id:"LTC",
-    title:"LTC",
-    contexts:["selection","link"]
+    id:"MONA-wallet",
+    title:"MONA-wallet",
+    contexts:["selection","link"],
+    parentId:"MONA"
 });
+
+browser.contextMenus.create({
+    id:"vippool",
+    title:"VIPPOOL",
+    contexts:["selection","link"],
+    parentId:"MONA-wallet",
+    icons:{
+        "16":"icon/vippool.png"
+    }
+});
+
+//MONA-transaction
+browser.contextMenus.create({
+    id:"MONA-transaction",
+    title:"MONA-transaction",
+    contexts:["selection","link"],
+    parentId:"MONA"
+});
+
+browser.contextMenus.create({
+    id:"vippool-tx",
+    title:"VIPPOOL-TX",
+    contexts:["selection","link"],
+    parentId:"MONA-transaction",
+    icons:{
+        "16":"icon/vippool.png"
+    }
+});
+
 
 //create empty variable
 var addr ="";
@@ -214,8 +336,8 @@ browser.contextMenus.onClicked.addListener((info, tab) =>{
 
     switch(info.menuItemId){
         //BTC-wallet
-        case "BTC.com":
-            url="https://btc.com/"+addr;
+        case "blockchair-BTC":
+            url="https://blockchair.com/bitcoin/address/"+addr;
             break;
         
         case "blockchain.com":
@@ -243,7 +365,28 @@ browser.contextMenus.onClicked.addListener((info, tab) =>{
             url="https://chainflyer.bitflyer.jp/Transaction/"+addr;
             break;
 
+        case "blockchair-tx":
+            url="https://blockchair.com/bitcoin/transaction/"+addr;
+            break;
+
         //BCH-wallet
+        case "blockchain-BCH":
+            url="https://www.blockchain.com/ja/bch/address/"+addr;
+            break;
+
+        case "blockchair-bch":
+            url="https://blockchair.com/bitcoin-cash/address/"+addr;
+            break;
+
+        //BCH-transaction
+        case "blockchain-bch-tx":
+            url="https://www.blockchain.com/ja/bch/tx/"+addr;
+            break;
+
+        case "blockchair-bch-tx":
+            url="https://blockchair.com/bitcoin-cash/transaction/"+addr;
+            break;
+
         //ETH-wallet
         case "etherscan-addr":
             url="https://etherscan.io/address/"+addr;
@@ -269,7 +412,20 @@ browser.contextMenus.onClicked.addListener((info, tab) =>{
         //case "etherscam-domain":
             //url="https://etherscamdb.info/domain/"+addr;
             //break;
+        
+        //XMR-wallet
+        
+        //XMR-transaction
 
+        //MONA-wallet
+        case "vippool":
+            url="https://explorer.vippool.net/monacoind/address/"+addr;
+            break;
+        
+        //MONA-transaction
+        case "vippool-tx":
+            url="https://explorer.vippool.net/monacoind/tx/"+addr;
+            break;
     }
 
 browser.tabs.create({url: url});
