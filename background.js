@@ -248,28 +248,23 @@ browser.contextMenus.create({
 });
 
 //domain abuse check
-//browser.contextMenus.create({
-//    id:"ETH-domain",
-//    title:"ETH-Domain Abuse",
-//    contexts:["selection","link"],
-//    parentId:"ETH"
-//});
+browser.contextMenus.create({
+    id:"ETH-domain",
+    title:"ETH-Domain Abuse",
+    contexts:["selection","link"],
+    parentId:"ETH"
+});
 
 
-//browser.contextMenus.create({
-//    id:"etherscam-domain",
-//    title:"EtherScamdb-Domain",
-//    contexts:["selection","link"],
-//    parentId:"ETH-domain"
-//});
+browser.contextMenus.create({
+    id:"etherscam-domain",
+    title:"EtherScamdb-Domain",
+    contexts:["selection","link"],
+    parentId:"ETH-domain"
+});
 
 
-//create XMR contextmenus
-//browser.contextMenus.create({
-//  id:"XMR",
-//    title:"XMR",
-//    contexts:["selection","link"]
-//});
+
 
 //create MONA contextmenus
 browser.contextMenus.create({
@@ -320,6 +315,7 @@ browser.contextMenus.create({
 
 //create empty variable
 var addr ="";
+var ethDomain ="";
 
 
 //when you cloick event listening
@@ -327,11 +323,11 @@ browser.contextMenus.onClicked.addListener((info, tab) =>{
     if(info.selectionText){
         addr = String(info.selectionText).trim();
     }else if(info.linkText){
-        var link = String(info.linkText).trim();
-        addr = link;
+        var link = new URL(info.linkText);
+        addr = link.host;
     }else if(info.linkUrl){
         var src = new URL(info.linkUrl);
-        addr = src.host;
+        addr = src.hostname;
     }
 
     switch(info.menuItemId){
@@ -409,13 +405,9 @@ browser.contextMenus.onClicked.addListener((info, tab) =>{
             url="https://ethplorer.io/tx/"+addr;
             break;
         //ETH domain abuse
-        //case "etherscam-domain":
-            //url="https://etherscamdb.info/domain/"+addr;
-            //break;
-        
-        //XMR-wallet
-        
-        //XMR-transaction
+        case "etherscam-domain":
+            url="https://etherscamdb.info/domain/"+addr;
+            break;
 
         //MONA-wallet
         case "vippool":
