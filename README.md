@@ -1,6 +1,6 @@
-# ICO wallet lookup tool.
+# CC(CryptCurrency) wallet lookup tool.
 
-This is ICO wallet lookup tool for Firefox Web Extension.
+This is Crypt Currency wallet lookup tool for Firefox Web Extension.
 
 This is a trial project for me.
 
@@ -14,9 +14,10 @@ This Addon provide some search engine's result.
 - BCH wallet chain lookup
 - ETH wallet chain lookup
 - XRP wallet chain lookup
-- XMR wallet chain lookup
 - MONA wallet chain lookup
 - LTC wallet chain lookup
+
+
 
 ## misc
 ICO(Initial coin offering) + wallet = Icollet
