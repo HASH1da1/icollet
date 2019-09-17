@@ -65,46 +65,6 @@ browser.contextMenus.create({
     }
 });
 
-
-//transaction
-browser.contextMenus.create({
-    id:"BTC-transaction",
-    title:"BTC-transaction",
-    contexts:["selection","link"],
-    parentId:"BTC"
-});
-
-browser.contextMenus.create({
-    id:"minergate-btc",
-    title:"MinerGate-BTC",
-    contexts:["selection","link"],
-    parentId:"BTC-transaction",
-    icons:{
-        "16":"icon/minergate.png"
-    }
-});
-
-browser.contextMenus.create({
-    id:"chainflyer-tr",
-    title:"Chainflyer-Tr",
-    contexts:["selection","link"],
-    parentId:"BTC-transaction",
-    icons:{
-        "16":"icon/chainflyer.png"
-    }
-});
-
-browser.contextMenus.create({
-    id:"blockchair-tx",
-    title:"BlockChair-TX",
-    contexts:["selection","link"],
-    parentId:"BTC-transaction",
-    icons:{
-        "16":"icon/blockchair.png"
-    }
-});
-
-
 //create BCH contextmenus
 browser.contextMenus.create({
     id:"BCH",
@@ -138,34 +98,6 @@ browser.contextMenus.create({
     title:"BlockChair-BCH",
     contexts:["selection","link"],
     parentId:"BCH-wallet",
-    icons:{
-        "16":"icon/blockchair.png"
-    }
-});
-
-//BCH-transaction
-browser.contextMenus.create({
-    id:"BCH-transaction",
-    title:"BCH-transaction",
-    contexts:["selection","link"],
-    parentId:"BCH"
-});
-
-browser.contextMenus.create({
-    id:"blockchain-bch-tx",
-    title:"BlockChain-BCH-TX",
-    contexts:["selection","link"],
-    parentId:"BCH-transaction",
-    icons:{
-        "16":"/icon/blockchain.png"
-    }
-});
-
-browser.contextMenus.create({
-    id:"blockchair-bch-tx",
-    title:"BlockChair-BCH-TX",
-    contexts:["selection","link"],
-    parentId:"BCH-transaction",
     icons:{
         "16":"icon/blockchair.png"
     }
@@ -219,34 +151,6 @@ browser.contextMenus.create({
     }
 });
 
-//ETH-transaction
-browser.contextMenus.create({
-    id:"ETH-transaction",
-    title:"ETH-transaction",
-    contexts:["selection","link"],
-    parentId:"ETH"
-});
-
-browser.contextMenus.create({
-    id:"etherscan-tx",
-    title:"Etherscan-TX",
-    contexts:["selection","link"],
-    parentId:"ETH-transaction",
-    icons:{
-        "16":"icon/etherscan.png"
-    }
-});
-
-browser.contextMenus.create({
-    id:"ethplorer-tx",
-    title:"Ethplorer-TX",
-    contexts:["selection","link"],
-    parentId:"ETH-transaction",
-    icons:{
-        "16":"icon/ethplorer.png"
-    }
-});
-
 //domain abuse check
 browser.contextMenus.create({
     id:"ETH-domain",
@@ -294,41 +198,36 @@ browser.contextMenus.create({
     }
 });
 
-//MONA-transaction
+//create c0ban contextMenus
 browser.contextMenus.create({
-    id:"MONA-transaction",
-    title:"MONA-transaction",
+    id: "c0ban",
+    title:"c0ban",
     contexts:["selection","link"],
-    parentId:"MONA"
-});
-
-browser.contextMenus.create({
-    id:"vippool-tx",
-    title:"VIPPOOL-TX",
-    contexts:["selection","link"],
-    parentId:"MONA-transaction",
     icons:{
-        "16":"icon/vippool.png"
+        "16":"icon/c0ban.png"
     }
 });
 
+//c0ban-wallet
+browser.contextMenus.create({
+    id:"insight",
+    title:"Insight",
+    contexts:["selelction","link"],
+    icons:{
+        "16":"icon/insight.ico"
+    }
+});
 
 //create empty variable
 var addr ="";
 var ethDomain ="";
 
 
-//when you cloick event listening
+//when you click event listening
 browser.contextMenus.onClicked.addListener((info, tab) =>{
     if(info.selectionText){
         addr = String(info.selectionText).trim();
-    }else if(info.linkText){
-        var link = new URL(info.linkText);
-        addr = link.host;
-    }else if(info.linkUrl){
-        var src = new URL(info.linkUrl);
-        addr = src.hostname;
-    }
+    };
 
     switch(info.menuItemId){
         //BTC-wallet
@@ -352,19 +251,6 @@ browser.contextMenus.onClicked.addListener((info, tab) =>{
             url="https://live.blockcypher.com/btc/address/"+addr;
             break;
 
-        //BTC-transaction
-        case "minergate-btc":
-            url="https://minergate.com/blockchain/btc/transaction/"+addr;
-            break;
-        
-        case "chainflyer":
-            url="https://chainflyer.bitflyer.jp/Transaction/"+addr;
-            break;
-
-        case "blockchair-tx":
-            url="https://blockchair.com/bitcoin/transaction/"+addr;
-            break;
-
         //BCH-wallet
         case "blockchain-BCH":
             url="https://www.blockchain.com/ja/bch/address/"+addr;
@@ -372,15 +258,6 @@ browser.contextMenus.onClicked.addListener((info, tab) =>{
 
         case "blockchair-bch":
             url="https://blockchair.com/bitcoin-cash/address/"+addr;
-            break;
-
-        //BCH-transaction
-        case "blockchain-bch-tx":
-            url="https://www.blockchain.com/ja/bch/tx/"+addr;
-            break;
-
-        case "blockchair-bch-tx":
-            url="https://blockchair.com/bitcoin-cash/transaction/"+addr;
             break;
 
         //ETH-wallet
@@ -396,14 +273,6 @@ browser.contextMenus.onClicked.addListener((info, tab) =>{
             url="https://etherscamdb.info/address/"+addr;
             break;
 
-        //ETH-transaction
-        case "etherscan-tx":
-            url="https://etherscan.io/tx/"+addr;
-            break;
-
-        case "ethplorer-tx":
-            url="https://ethplorer.io/tx/"+addr;
-            break;
         //ETH domain abuse
         case "etherscam-domain":
             url="https://etherscamdb.info/domain/"+addr;
@@ -413,12 +282,7 @@ browser.contextMenus.onClicked.addListener((info, tab) =>{
         case "vippool":
             url="https://explorer.vippool.net/monacoind/address/"+addr;
             break;
-        
-        //MONA-transaction
-        case "vippool-tx":
-            url="https://explorer.vippool.net/monacoind/tx/"+addr;
-            break;
-    }
+    };
 
 browser.tabs.create({url: url});
 
