@@ -151,24 +151,6 @@ browser.contextMenus.create({
     }
 });
 
-//domain abuse check
-browser.contextMenus.create({
-    id:"ETH-domain",
-    title:"ETH-Domain Abuse",
-    contexts:["selection","link"],
-    parentId:"ETH"
-});
-
-
-browser.contextMenus.create({
-    id:"etherscam-domain",
-    title:"EtherScamdb-Domain",
-    contexts:["selection","link"],
-    parentId:"ETH-domain"
-});
-
-
-
 
 //create MONA contextmenus
 browser.contextMenus.create({
@@ -213,6 +195,7 @@ browser.contextMenus.create({
     id:"insight",
     title:"Insight",
     contexts:["selelction","link"],
+    parentId:"c0ban",
     icons:{
         "16":"icon/insight.ico"
     }
@@ -220,8 +203,6 @@ browser.contextMenus.create({
 
 //create empty variable
 var addr ="";
-var ethDomain ="";
-
 
 //when you click event listening
 browser.contextMenus.onClicked.addListener((info, tab) =>{
@@ -273,14 +254,14 @@ browser.contextMenus.onClicked.addListener((info, tab) =>{
             url="https://etherscamdb.info/address/"+addr;
             break;
 
-        //ETH domain abuse
-        case "etherscam-domain":
-            url="https://etherscamdb.info/domain/"+addr;
-            break;
-
         //MONA-wallet
         case "vippool":
             url="https://explorer.vippool.net/monacoind/address/"+addr;
+            break;
+
+        //c0ban-wallet
+        case "insight":
+            url="https://insight-beta.c0ban.com/insight/address/"+addr;
             break;
     };
 

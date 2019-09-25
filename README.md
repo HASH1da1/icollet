@@ -13,8 +13,7 @@ This Addon provide some search engine's result.
 - BTC wallet chain lookup
 - BCH wallet chain lookup
 - ETH wallet chain lookup
-- XRP wallet chain lookup
 - MONA wallet chain lookup
-- LTC wallet chain lookup
+- RYO wallet chain lookup
 
 
