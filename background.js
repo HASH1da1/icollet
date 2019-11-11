@@ -201,6 +201,17 @@ browser.contextMenus.create({
     }
 });
 
+//c0ban-transactions
+browser.contextMenus.create({
+    id:"insight-tx",
+    title:"Insight Tx",
+    contexts:["selection","link"],
+    parentId:"c0ban",
+    icons:{
+        "16":"icon/insight.ico"
+    }
+});
+
 //create empty variable
 var addr ="";
 
