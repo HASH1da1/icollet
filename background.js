@@ -274,7 +274,13 @@ browser.contextMenus.onClicked.addListener((info, tab) =>{
         case "insight":
             url="https://insight-beta.c0ban.com/insight/address/"+addr;
             break;
+
+        //c0ban-transaction
+        case "insight-tx":
+            url = "https://insight-beta.c0ban.com/insight/tx/"+addr;
+            break;
     };
+
 
 browser.tabs.create({url: url});
 
